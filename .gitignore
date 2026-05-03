@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Node (if added later)
+node_modules/
+
+# Claude Code internal settings
+.claude/
+
+# Large raw source files not needed for deployment
+*.tif
+*.pptx
