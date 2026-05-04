@@ -21,8 +21,8 @@
       --dark-3:    #1A1F2C;
 
       --t1:  #090B0F;
-      --t2:  #404048;
-      --t3:  #8A8A92;
+      --t2:  #5C5C6A;
+      --t3:  #9898A4;
 
       --a:   #0F5E7A;
       --a-h: #1A7090;
@@ -45,7 +45,7 @@
       font-family: var(--font);
       background: var(--bg);
       color: var(--t1);
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -459,6 +459,61 @@
       transition: transform .6s ease;
     }
     .cap-card:hover .cap-card-img img { transform: scale(1.04); }
+
+    /* ─── Card 2: geoint.png layer slideshow ────────────── */
+    .layer-slide-wrap {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: #f4f6f8;
+      border-bottom: 1px solid var(--b);
+    }
+    .layer-slide-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: lsZoom 16s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes lsZoom {
+      0%,  8%  { transform: scale(1)   translate(0%,    0%); }  /* Full overview */
+      18%, 32% { transform: scale(2.5) translate(3%,   20%); }  /* Top layers — Env. & Infra. Monitoring */
+      42%, 56% { transform: scale(2.5) translate(3%,   -8%); }  /* Lower layers — Geospatial Analysis & GIS */
+      66%, 80% { transform: scale(2.2) translate(-16%,  0%); }  /* Intelligence Outputs */
+      90%,100% { transform: scale(1)   translate(0%,    0%); }  /* Return to full */
+    }
+    .ls-lbl {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(9,11,15,.86);
+      border: 1px solid rgba(15,94,122,.55);
+      border-radius: 4px;
+      padding: 4px 11px;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(90,196,222,.9);
+      pointer-events: none;
+      opacity: 0;
+    }
+    .ls-lbl-1 { animation: ls1 16s ease-in-out infinite; }
+    .ls-lbl-2 { animation: ls2 16s ease-in-out infinite; }
+    .ls-lbl-3 { animation: ls3 16s ease-in-out infinite; }
+    .ls-lbl-4 { animation: ls4 16s ease-in-out infinite; }
+    @keyframes ls1 {
+      0%   { opacity:0; } 2%  { opacity:1; } 7%  { opacity:1; } 13% { opacity:0; } 100%{ opacity:0; }
+    }
+    @keyframes ls2 {
+      0%,14%{ opacity:0; } 20%{ opacity:1; } 30%{ opacity:1; } 36%{ opacity:0; } 100%{ opacity:0; }
+    }
+    @keyframes ls3 {
+      0%,38%{ opacity:0; } 44%{ opacity:1; } 54%{ opacity:1; } 60%{ opacity:0; } 100%{ opacity:0; }
+    }
+    @keyframes ls4 {
+      0%,62%{ opacity:0; } 68%{ opacity:1; } 78%{ opacity:1; } 84%{ opacity:0; } 100%{ opacity:0; }
+    }
 
     /* Card 1: two images side-by-side */
     .cap-card-img--split {
@@ -961,7 +1016,7 @@
         <li><a href="#process">Process</a></li>
         <li><a href="#industries">Industries</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Book a Consultation</a>
+      <a href="mailto:hello@waypoint-geoint.com" class="nav-cta">Book a Consultation</a>
     </div>
   </nav>
 
@@ -985,7 +1040,7 @@
         </p>
 
         <div class="btn-group">
-          <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+          <a href="mailto:hello@waypoint-geoint.com" class="btn btn-primary">Book a Consultation</a>
           <a href="#process"  class="btn btn-outline-light">See How It Works</a>
         </div>
 
@@ -1276,170 +1331,13 @@
 
         <!-- Card 2 -->
         <div class="cap-card fi d2">
-          <div class="cap-card-img cap-card-img--svg">
-            <!-- Monitoring layer slideshow: cycles through 4 application types -->
-            <svg viewBox="0 0 400 172" width="100%" height="100%" fill="none"
-                 preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <pattern id="gint-d" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <circle cx="12" cy="12" r=".7" fill="rgba(255,255,255,.07)"/>
-                </pattern>
-              </defs>
-              <rect width="400" height="172" fill="#0a0e14"/>
-              <rect width="400" height="172" fill="url(#gint-d)"/>
-
-              <!-- ── Left: data source nodes (static) ── -->
-              <rect x="12" y="50" width="16" height="10" rx="1.5"
-                    fill="rgba(15,94,122,.2)" stroke="rgba(15,94,122,.55)" stroke-width=".9"/>
-              <line x1="20" y1="43" x2="20" y2="50" stroke="rgba(15,94,122,.45)" stroke-width=".9" stroke-linecap="round"/>
-              <line x1="14" y1="46" x2="20" y2="43" stroke="rgba(15,94,122,.35)" stroke-width=".8"/>
-              <line x1="26" y1="46" x2="20" y2="43" stroke="rgba(15,94,122,.35)" stroke-width=".8"/>
-              <circle cx="20" cy="86" r="8" fill="rgba(15,94,122,.18)" stroke="rgba(15,94,122,.52)" stroke-width=".9"/>
-              <circle cx="20" cy="86" r="3.5" fill="rgba(15,94,122,.4)"/>
-              <polygon points="20,124 12,114 28,114"
-                       fill="rgba(15,94,122,.18)" stroke="rgba(15,94,122,.5)" stroke-width=".9"/>
-              <line x1="20" y1="125" x2="20" y2="130" stroke="rgba(15,94,122,.35)" stroke-width="1.2" stroke-linecap="round"/>
-              <line x1="20" y1="60"  x2="52" y2="86" stroke="rgba(15,94,122,.3)" stroke-width=".8" stroke-dasharray="3.5 2.5"/>
-              <line x1="28" y1="86"  x2="47" y2="86" stroke="rgba(15,94,122,.3)" stroke-width=".8" stroke-dasharray="3.5 2.5"/>
-              <line x1="20" y1="114" x2="52" y2="86" stroke="rgba(15,94,122,.3)" stroke-width=".8" stroke-dasharray="3.5 2.5"/>
-              <circle cx="52" cy="86" r="4.5" fill="#0F5E7A"/>
-              <circle class="vn d2" cx="52" cy="86" r="4.5" fill="#0F5E7A"/>
-              <line class="c-flow" x1="57" y1="86" x2="74" y2="100" stroke="rgba(15,94,122,.5)" stroke-width="1"/>
-
-              <!-- ── Base layer stack (always visible, dimmed) ── -->
-              <polygon points="74,105 218,105 236,88 92,88"   fill="rgba(15,94,122,.07)" stroke="rgba(15,94,122,.2)" stroke-width=".8"/>
-              <polygon points="74,124 218,124 236,107 92,107" fill="rgba(15,94,122,.07)" stroke="rgba(15,94,122,.2)" stroke-width=".8"/>
-              <polygon points="74,143 218,143 236,126 92,126" fill="rgba(15,94,122,.07)" stroke="rgba(15,94,122,.2)" stroke-width=".8"/>
-              <polygon points="74,162 218,162 236,145 92,145" fill="rgba(15,94,122,.07)" stroke="rgba(15,94,122,.2)" stroke-width=".8"/>
-              <path d="M92,88 L92,78 L102,78"   stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-linecap="round"/>
-              <path d="M236,88 L236,78 L226,78" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-linecap="round"/>
-
-              <!-- ══ SLIDE 1: Change Detection ══ -->
-              <g class="sl">
-                <rect x="10" y="10" width="124" height="17" rx="3"
-                      fill="rgba(232,123,64,.12)" stroke="rgba(232,123,64,.4)" stroke-width=".8"/>
-                <circle cx="20" cy="18.5" r="3" fill="#E87B40"/>
-                <text x="28" y="22.5" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="600"
-                      fill="rgba(232,123,64,.9)">Change Detection</text>
-                <polygon points="74,105 218,105 236,88 92,88"
-                         fill="rgba(232,123,64,.18)" stroke="rgba(232,123,64,.65)" stroke-width="1.2"/>
-                <rect x="98"  y="92" width="12" height="7" rx="1" fill="rgba(232,123,64,.38)"/>
-                <rect x="140" y="93" width="10" height="6" rx="1" fill="rgba(232,123,64,.45)"/>
-                <rect x="175" y="91" width="16" height="8" rx="1" fill="rgba(232,123,64,.32)"/>
-                <rect x="200" y="94" width="8"  height="6" rx="1" fill="rgba(232,123,64,.4)"/>
-                <line class="c-flow" x1="236" y1="96" x2="248" y2="58"
-                      stroke="rgba(232,123,64,.45)" stroke-width="1" style="animation-delay:.2s"/>
-                <rect x="248" y="22" width="140" height="130" rx="4"
-                      fill="rgba(232,123,64,.07)" stroke="rgba(232,123,64,.35)" stroke-width="1"/>
-                <text x="260" y="38" font-family="Inter,system-ui,sans-serif" font-size="7" font-weight="700"
-                      letter-spacing=".1em" fill="rgba(232,123,64,.7)">CHANGES DETECTED</text>
-                <line x1="260" y1="52"  x2="374" y2="52"  stroke="rgba(232,123,64,.6)"  stroke-width="1.8" stroke-linecap="round"/>
-                <line x1="260" y1="65"  x2="348" y2="65"  stroke="rgba(232,123,64,.42)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="78"  x2="362" y2="78"  stroke="rgba(232,123,64,.5)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="91"  x2="336" y2="91"  stroke="rgba(232,123,64,.35)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="104" x2="356" y2="104" stroke="rgba(232,123,64,.45)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="117" x2="326" y2="117" stroke="rgba(232,123,64,.3)"  stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="378" cy="38" r="5" fill="rgba(232,123,64,.8)"/>
-                <circle cx="378" cy="38" r="9" fill="none" stroke="rgba(232,123,64,.35)" stroke-width="1"
-                        class="c-ring" style="transform-origin:378px 38px"/>
-              </g>
-
-              <!-- ══ SLIDE 2: Environmental Monitoring ══ -->
-              <g class="sl sl-2">
-                <rect x="10" y="10" width="163" height="17" rx="3"
-                      fill="rgba(74,222,128,.1)" stroke="rgba(74,222,128,.38)" stroke-width=".8"/>
-                <circle cx="20" cy="18.5" r="3" fill="#4ADE80"/>
-                <text x="28" y="22.5" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="600"
-                      fill="rgba(74,222,128,.9)">Environmental Monitoring</text>
-                <polygon points="74,124 218,124 236,107 92,107"
-                         fill="rgba(74,222,128,.15)" stroke="rgba(74,222,128,.6)" stroke-width="1.2"/>
-                <rect x="94"  y="110" width="28" height="11" rx="1" fill="rgba(74,222,128,.35)"/>
-                <rect x="126" y="110" width="22" height="11" rx="1" fill="rgba(74,222,128,.22)"/>
-                <rect x="152" y="110" width="30" height="11" rx="1" fill="rgba(74,222,128,.42)"/>
-                <rect x="186" y="110" width="18" height="11" rx="1" fill="rgba(74,222,128,.28)"/>
-                <line class="c-flow" x1="236" y1="115" x2="248" y2="88"
-                      stroke="rgba(74,222,128,.4)" stroke-width="1" style="animation-delay:.3s"/>
-                <rect x="248" y="22" width="140" height="130" rx="4"
-                      fill="rgba(74,222,128,.06)" stroke="rgba(74,222,128,.32)" stroke-width="1"/>
-                <text x="260" y="38" font-family="Inter,system-ui,sans-serif" font-size="7" font-weight="700"
-                      letter-spacing=".1em" fill="rgba(74,222,128,.7)">ENV. INDICES</text>
-                <line x1="260" y1="52"  x2="370" y2="52"  stroke="rgba(74,222,128,.62)" stroke-width="1.8" stroke-linecap="round"/>
-                <line x1="260" y1="65"  x2="344" y2="65"  stroke="rgba(74,222,128,.42)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="78"  x2="360" y2="78"  stroke="rgba(74,222,128,.52)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="91"  x2="332" y2="91"  stroke="rgba(74,222,128,.38)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="104" x2="352" y2="104" stroke="rgba(74,222,128,.48)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="117" x2="320" y2="117" stroke="rgba(74,222,128,.3)"  stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="378" cy="38" r="5" fill="rgba(74,222,128,.8)"/>
-                <circle cx="378" cy="38" r="9" fill="none" stroke="rgba(74,222,128,.3)" stroke-width="1"
-                        class="c-ring" style="transform-origin:378px 38px"/>
-              </g>
-
-              <!-- ══ SLIDE 3: Infrastructure Monitoring ══ -->
-              <g class="sl sl-3">
-                <rect x="10" y="10" width="155" height="17" rx="3"
-                      fill="rgba(96,165,250,.1)" stroke="rgba(96,165,250,.38)" stroke-width=".8"/>
-                <circle cx="20" cy="18.5" r="3" fill="#60A5FA"/>
-                <text x="28" y="22.5" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="600"
-                      fill="rgba(96,165,250,.9)">Infrastructure Monitoring</text>
-                <polygon points="74,143 218,143 236,126 92,126"
-                         fill="rgba(96,165,250,.14)" stroke="rgba(96,165,250,.58)" stroke-width="1.2"/>
-                <line x1="100" y1="135" x2="212" y2="135" stroke="rgba(96,165,250,.4)"  stroke-width="1" stroke-dasharray="6 4"/>
-                <line x1="135" y1="128" x2="144" y2="143" stroke="rgba(96,165,250,.32)" stroke-width="1"/>
-                <line x1="165" y1="128" x2="174" y2="143" stroke="rgba(96,165,250,.32)" stroke-width="1"/>
-                <line x1="195" y1="128" x2="204" y2="143" stroke="rgba(96,165,250,.32)" stroke-width="1"/>
-                <line class="c-flow" x1="236" y1="134" x2="248" y2="118"
-                      stroke="rgba(96,165,250,.4)" stroke-width="1" style="animation-delay:.5s"/>
-                <rect x="248" y="22" width="140" height="130" rx="4"
-                      fill="rgba(96,165,250,.06)" stroke="rgba(96,165,250,.32)" stroke-width="1"/>
-                <text x="260" y="38" font-family="Inter,system-ui,sans-serif" font-size="7" font-weight="700"
-                      letter-spacing=".1em" fill="rgba(96,165,250,.7)">INFRA STATUS</text>
-                <line x1="260" y1="52"  x2="378" y2="52"  stroke="rgba(96,165,250,.6)"  stroke-width="1.8" stroke-linecap="round"/>
-                <line x1="260" y1="65"  x2="352" y2="65"  stroke="rgba(96,165,250,.4)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="78"  x2="366" y2="78"  stroke="rgba(96,165,250,.5)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="91"  x2="340" y2="91"  stroke="rgba(96,165,250,.35)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="104" x2="358" y2="104" stroke="rgba(96,165,250,.45)" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="117" x2="330" y2="117" stroke="rgba(96,165,250,.28)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="378" cy="38" r="5" fill="rgba(96,165,250,.8)"/>
-                <circle cx="378" cy="38" r="9" fill="none" stroke="rgba(96,165,250,.3)" stroke-width="1"
-                        class="c-ring" style="transform-origin:378px 38px"/>
-              </g>
-
-              <!-- ══ SLIDE 4: Land Cover Classification ══ -->
-              <g class="sl sl-4">
-                <rect x="10" y="10" width="152" height="17" rx="3"
-                      fill="rgba(192,132,252,.1)" stroke="rgba(192,132,252,.38)" stroke-width=".8"/>
-                <circle cx="20" cy="18.5" r="3" fill="#C084FC"/>
-                <text x="28" y="22.5" font-family="Inter,system-ui,sans-serif" font-size="8" font-weight="600"
-                      fill="rgba(192,132,252,.9)">Land Cover Classification</text>
-                <polygon points="74,162 218,162 236,145 92,145"
-                         fill="rgba(192,132,252,.14)" stroke="rgba(192,132,252,.55)" stroke-width="1.2"/>
-                <rect x="94"  y="148" width="24" height="11" rx="1" fill="rgba(96,165,250,.4)"/>
-                <rect x="122" y="148" width="32" height="11" rx="1" fill="rgba(74,222,128,.38)"/>
-                <rect x="158" y="148" width="28" height="11" rx="1" fill="rgba(74,222,128,.55)"/>
-                <rect x="190" y="148" width="16" height="11" rx="1" fill="rgba(90,196,222,.4)"/>
-                <line class="c-flow" x1="236" y1="153" x2="248" y2="148"
-                      stroke="rgba(192,132,252,.4)" stroke-width="1" style="animation-delay:.4s"/>
-                <rect x="248" y="22" width="140" height="130" rx="4"
-                      fill="rgba(192,132,252,.06)" stroke="rgba(192,132,252,.3)" stroke-width="1"/>
-                <text x="260" y="38" font-family="Inter,system-ui,sans-serif" font-size="7" font-weight="700"
-                      letter-spacing=".1em" fill="rgba(192,132,252,.7)">LAND COVER</text>
-                <line x1="260" y1="52"  x2="350" y2="52"  stroke="rgba(96,165,250,.6)"   stroke-width="1.8" stroke-linecap="round"/>
-                <line x1="260" y1="65"  x2="374" y2="65"  stroke="rgba(74,222,128,.58)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="78"  x2="366" y2="78"  stroke="rgba(74,222,128,.7)"   stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="91"  x2="338" y2="91"  stroke="rgba(90,196,222,.52)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="104" x2="362" y2="104" stroke="rgba(192,132,252,.5)"  stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="260" y1="117" x2="320" y2="117" stroke="rgba(192,132,252,.35)" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="378" cy="38" r="5" fill="rgba(192,132,252,.8)"/>
-                <circle cx="378" cy="38" r="9" fill="none" stroke="rgba(192,132,252,.3)" stroke-width="1"
-                        class="c-ring" style="transform-origin:378px 38px"/>
-              </g>
-
-              <!-- ── Slide indicator dots ── -->
-              <circle class="sl-dot"   cx="186" cy="164" r="3" fill="rgba(90,196,222,.9)"/>
-              <circle class="sl-dot-2" cx="196" cy="164" r="3" fill="rgba(90,196,222,.9)"/>
-              <circle class="sl-dot-3" cx="206" cy="164" r="3" fill="rgba(90,196,222,.9)"/>
-              <circle class="sl-dot-4" cx="216" cy="164" r="3" fill="rgba(90,196,222,.9)"/>
-            </svg>
+          <div class="layer-slide-wrap">
+            <img src="sample-figures/geoint.png"
+                 alt="Layered spatial analysis diagram" loading="lazy" />
+            <span class="ls-lbl ls-lbl-1">Layered Spatial Analysis</span>
+            <span class="ls-lbl ls-lbl-2">Environmental &amp; Infrastructure Monitoring</span>
+            <span class="ls-lbl ls-lbl-3">Geospatial Analysis &amp; GIS Layers</span>
+            <span class="ls-lbl ls-lbl-4">Intelligence Outputs</span>
           </div>
           <div class="cap-card-top">
             <div class="cap-icon">
@@ -1720,26 +1618,6 @@
   <!-- ═══════════════════════════════════════════════════════
        SECTION 7 — CTA
   ═══════════════════════════════════════════════════════ -->
-  <section id="contact" class="cta-sect">
-    <div class="cta-inner">
-
-      <div class="cta-text fi">
-        <span class="eyebrow eyebrow--light">Get Started</span>
-        <h2>Build Reliable<br>Spatial Intelligence</h2>
-        <p>Let's discuss your data, workflows, and operational goals. We'll scope a structured pilot designed for your specific use case.</p>
-      </div>
-
-      <div class="cta-actions fi d2">
-        <a href="mailto:hello@waypoint-geo.com" class="btn btn-primary" style="font-size:.95rem; padding:15px 30px;">
-          Schedule a Consultation
-        </a>
-        <a href="#what" class="btn btn-outline-light">Explore Capabilities</a>
-        <p style="font-size:.78rem; color:rgba(255,255,255,.28); margin-top:4px;">
-        </p>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════════════
        FOOTER
@@ -1764,7 +1642,6 @@
           <li><a href="#why">Why Waypoint</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#industries">Industries</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -1772,7 +1649,8 @@
         <p class="footer-col-title">Connect</p>
         <ul class="footer-links">
           <li>
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/waypoint-geospatial-intelligence/?viewAsMember=true"
+               target="_blank" rel="noopener" aria-label="LinkedIn">
               LinkedIn
             </a>
           </li>
